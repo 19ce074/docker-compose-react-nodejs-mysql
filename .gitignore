@@ -1,0 +1,5 @@
+db
+.env
+./trainee_backend/.env.backend
+./trainee_backend/node_modules
+./trainee_frontend/node_modules
