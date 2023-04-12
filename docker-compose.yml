@@ -5,8 +5,7 @@ services:
 #database
   mysqldb:
     image: mysql
-    env_file:
-      - ./.env
+   
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
       - MYSQL_DATABASE=$MYSQLDB_DATABASE
@@ -35,13 +34,13 @@ services:
     depends_on:
       - mysqldb
     build: ./trainee_backend
-    env_file: ./.env
+ 
     environment:
       - DB_HOST=mysqldb
-      - DB_USER=$MYSQLDB_USER
-      - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
-      - DB_NAME=$MYSQLDB_DATABASE
-      - DB_PORT=$MYSQLDB_DOCKER_PORT
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_NAME=$DB_NAME
+      - DB_PORT=$DB_PORT
       - CLIENT_ORIGIN=$CLIENT_ORIGIN
     ports:
       - 6868:8080
