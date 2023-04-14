@@ -25,7 +25,7 @@ services:
       args:
         - REACT_APP_API_BASE_URL=$CLIENT_API_BASE_URL
     ports:
-      - 8888:80
+      - 5001:80
     networks:
       - docker-compose-project
 
@@ -43,7 +43,7 @@ services:
       - DB_PORT=$DB_PORT
       - CLIENT_ORIGIN=$CLIENT_ORIGIN
     ports:
-      - 6868:8080
+      - 5000:8080
     networks:
       - docker-compose-project
 
