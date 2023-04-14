@@ -15,6 +15,12 @@ Use ```git clone <url> ``` in your command window to clone the project.
 
 cd into the directory created.
 
+In the home directory of the project, create a directory named "db" using mkdir.
+
+```mkdir db``` 
+
+This is a bind mount to store the data of the container.
+
 ---
 
 ## Installing docker on you local machine
@@ -52,4 +58,8 @@ In your command line just type ```docker-compose up``` to build and run the cont
 
 Let it build for a moment then open your browser and enter localhost:5000. 
 The website should be running and database is connected.
+
+To stop the container use ctrl c to interrupt or ```docker-compose down```.
+
+Even when you stop the container or remove it, the data will still persiste as there is a bind mount created.
 
