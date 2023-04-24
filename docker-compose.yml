@@ -24,7 +24,7 @@ services:
       - trainee_backend
     build:
       context: ./trainee_frontend
-      environment:
+    environment:
         - REACT_APP_API_BASE_URL=$CLIENT_API_BASE_URL
     ports:
         - 80:80  
@@ -32,6 +32,7 @@ services:
       - docker-compose-frontend
     volumes:
       - ./trainee_frontend/nginx:/etc/nginx/conf.d
+      - ./trainee_frontend/openssl:/etc/nginx/ssl
 
 #backend
   trainee_backend:
