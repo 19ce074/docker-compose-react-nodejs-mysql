@@ -9,13 +9,13 @@ const app = express();
 var corsOptions = {
   origin: process.env.CLIENT_ORIGIN || "http://localhost:8081"
 };
-const sslServer = https.createServer({
- key: fs.readFileSync('./openssl/server.key'),
- cert: fs.readFileSync('./openssl/server.crt'),
-},
-app
+// const sslServer = https.createServer({
+//  key: fs.readFileSync('./openssl/server.key'),
+//  cert: fs.readFileSync('./openssl/server.crt'),
+// },
+// app
 
-)
+// )
 
 
 
@@ -50,6 +50,6 @@ require("./app/routes/turorial.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.NODE_DOCKER_PORT || 8080;
-sslServer.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
