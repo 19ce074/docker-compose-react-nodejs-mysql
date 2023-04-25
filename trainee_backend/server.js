@@ -1,12 +1,23 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const fs=require("fs");
+const https=require("https");
 
 const app = express();
 
 var corsOptions = {
   origin: process.env.CLIENT_ORIGIN || "http://localhost:8081"
 };
+const sslServer = https.createServer({
+ key: fs.readFileSync('./openssl/server.key'),
+ cert: fs.readFileSync('./openssl/server.crt'),
+},
+app
+
+)
+
+
 
 app.use(cors(corsOptions));
 
@@ -39,6 +50,6 @@ require("./app/routes/turorial.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.NODE_DOCKER_PORT || 8080;
-app.listen(PORT, () => {
+sslServer.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

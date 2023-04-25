@@ -1,32 +1,32 @@
-import http from "../http-common";
+import https from "../http-common";
 
 class TutorialDataService {
   getAll() {
-    return http.get("/tutorials");
+    return https.get("/api/tutorials");
   }
 
   get(id) {
-    return http.get(`/tutorials/${id}`);
+    return https.get(`/api/tutorials/${id}`);
   }
 
   create(data) {
-    return http.post("/tutorials", data);
+    return https.post("/api/tutorials", data);
   }
 
   update(id, data) {
-    return http.put(`/tutorials/${id}`, data);
+    return https.put(`/api/tutorials/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/tutorials/${id}`);
+    return https.delete(`/api/tutorials/${id}`);
   }
 
   deleteAll() {
-    return http.delete(`/tutorials`);
+    return https.delete(`/api/tutorials`);
   }
 
   findByTitle(title) {
-    return http.get(`/tutorials?title=${title}`);
+    return https.get(`/api/tutorials?title=${title}`);
   }
 }
 
