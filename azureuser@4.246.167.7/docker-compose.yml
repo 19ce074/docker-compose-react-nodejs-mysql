@@ -25,10 +25,9 @@ services:
     build:
       context: ./trainee_frontend
     environment:
-        - REACT_APP_API_BASE_URL=2.0.0.0
+        - REACT_APP_API_BASE_URL=$CLIENT_API_BASE_URL
     ports:
         - 443:443  
-        - 80:80
     networks:
       - docker-compose-frontend
     volumes:
